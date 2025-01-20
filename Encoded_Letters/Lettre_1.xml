@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../../T%C3%A9l%C3%A9chargements/out/tei_minimal.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="../../../../T%C3%A9l%C3%A9chargements/out/tei_minimal.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="fr">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Crequi_28_02_1903</title>
+            <respStmt>
+               <resp>Encoded by</resp>
+               <name>Mélina Conter</name>
+            </respStmt>
+         </titleStmt>
+         <publicationStmt>
+            <distributor>Ecole nationale des Chartes</distributor>
+            <availability status="free">
+               <p>Réutilisation libre en contexte acdémique et pour la recherche</p>
+            </availability>
+         </publicationStmt>
+         <sourceDesc>
+            <msDesc>
+               <msIdentifier>
+                  <country>France</country>
+                  <settlement>Pierrefitte-sur-Seine</settlement>
+                  <repository>Archives nationales</repository>
+                  <idno>“Courtivron”(F/17/17270)</idno>
+               </msIdentifier>
+               <physDesc>
+                  <objectDesc>
+                     <supportDesc>
+                        <support>Feuilles de papier</support>
+                        <extent>1 page</extent>
+                     </supportDesc>
+                  </objectDesc>
+               </physDesc>
+            </msDesc>
+            <listPerson>
+               <person xml:id="Cre_01">
+                  <persName>George de Créqui-Montfort : <roleName>chef de la mission scientifique de Créqui-Montfort</roleName></persName>
+                  <idno type="wikidata">Q3103688</idno>
+               </person>
+               <person xml:id="Sen_01">
+                  <persName>Eugène Sénéchal de la Grange : <roleName>membre de la mission scientifique de Créqui-Montfort</roleName></persName>
+                  <idno type="bnf">ark:/12148/cb153776752</idno>
+               </person>
+               <person xml:id="Cha_01">
+                  <persName>Joseph Chaumier : <roleName>ministre de l'Instruction Publique et des Beaux-Arts</roleName></persName>
+                  <idno type="wikidata">Q3184755</idno>
+               </person>
+               <person xml:id="Nev_01">
+                  <persName>Maurice Neveu-Lemaire : <roleName>membre de la mission scientifique de Créqui-Montfort</roleName></persName>
+                  <idno type="wikidata">Q15998135</idno>
+               </person>
+               <person xml:id="Cou_01">
+                  <persName>George Courty : <roleName>membre de la mission scientifique de Créqui-Montfort</roleName></persName>
+                  <idno type="wikidata">Q123136028</idno>
+               </person>
+               <person xml:id="Mor_01">
+                  <persName>Adrien de Mortillet : <roleName>membre de la mission scientifique de Créqui-Montfort</roleName></persName>
+                  <idno type="wikidata">Q16677932</idno>
+               </person>
+               <person xml:id="Gui_01">
+                  <persName>J. Guillaume : <roleName>membre de la mission scientifique de Créqui-Montfort</roleName></persName>
+                  <idno type="wikidata">Q16677932</idno>
+               </person>
+            </listPerson>
+            <listOrg>
+               <org xml:id="Mipba_01">
+                  <orgName>Ministère de l'Instruction Publique et des Beaux-Arts</orgName>
+                  <idno type="VIAF">316898315</idno>
+               </org>
+            </listOrg>
+            <listPlace>
+               <place xml:id="Bol_01">
+                  <placeName>Bolivie</placeName>
+                  <location>
+                     <address><addrLine>Bolivie</addrLine></address>
+                  </location>
+                  <idno type="wikidata">Q750</idno>
+               </place>
+               <place xml:id="Chi_01">
+                  <placeName>Chili</placeName>
+                  <location>
+                     <address><addrLine>Chili</addrLine></address>
+                  </location>
+                  <idno type="wikidata">Q298</idno>
+               </place>
+               <place xml:id="Fra_01">
+                  <placeName>France</placeName>
+                  <location>
+                     <address><addrLine>France</addrLine></address>
+                  </location>
+                  <idno type="wikidata"></idno>
+               </place>
+               <place xml:id="Per_01">
+                  <placeName>Pérou</placeName>                  
+                  <location>
+                     <address><addrLine>Pérou</addrLine></address>
+                  </location>
+                  <idno type="wikidata">Q419</idno>
+               </place>
+               <place xml:id="Mipba_02">
+                  <placeName>Ministère de l'Instruction Publique et des Beaux-Arts</placeName>
+                  <location>
+                     <address><addrLine>Hôtel de Rochechouart, 110 rue de Grenelle, 75007 Paris</addrLine></address>
+                     <geo>48.862725 2.287592</geo>
+                  </location>
+                  <idno type="VIAF">316898315</idno>
+               </place>
+            </listPlace>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <projectDesc>
+            <p>Ce document a été encodé dans le cadre du projet Crequis_mission.</p>
+         </projectDesc>
+      </encodingDesc>
+      <profileDesc>
+         <correspDesc>
+            <correspAction type="sent">
+               <persName ref="#Cre_01">George de Créqui-Montfort</persName>
+               <persName ref="#Sen_01">Eugène Sénéchal de la Grange</persName>
+               <date when="1903-02-28">28 février 1903</date>
+               <address>
+                  <addrLine>56 Rue de Londres, 75008 Paris</addrLine>
+               </address>
+               <country>France</country>
+            </correspAction>
+            <correspAction type="received">
+               <persName ref="#Cha_01">Joseph Chaumier</persName>
+               <orgName ref="#Mipba_01">Ministère de l'Instruction Publique et des Beaux-Arts</orgName>
+               <placeName ref="#Mipba_02">Ministère de l'Instruction Publique et des Beaux-Arts</placeName>
+               <country>France</country>
+            </correspAction>
+         </correspDesc>
+      </profileDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <div>
+            <opener> 
+               <dateline>Paris le 28 février 1903</dateline>
+               <persName ref="#Cha_01">Monsieur le Ministre de <orgName ref="#Mipba_01">l'Instruction Publique et des Beaux-Arts</orgName></persName>
+               <salute>Monsieur le Ministre,</salute>
+            </opener>
+            <p>Nous avons l'honneur de venir solliciter pour une mission scientifique
+               que nous organisons à nos frais et qui doit quitter la <placeName ref="#Fra_01">France</placeName> 
+               <date when="1903-04-03">le 3 Avril prochain</date>, l'appui moral de votre administration, sous la 
+               forme du titre de "Mission scientifique gratuite" que vous voudriez 
+               bien lui décerner.</p>
+            <p>Après un court séjour au <placeName ref="#Chi_01">Chili</placeName>, nous gravirons les Hauts Plateaux de 
+               la <placeName ref="#Bol_01">Bolivie</placeName> et du <placeName ref="#Per_01">Pérou</placeName> pour y étudier avec soin toutes les questions 
+               anthropologiques, ethnographiques et géologiques qui s'y présentent, 
+               ainsi que les problèmes de physiologie et de pathologie que pose 
+               l'altitude de 4 à 5.000 mètres à laquelle nous ferons nos divers séjours. 
+               Nous avons en outre l'intention de faire une étude approfondie des fleuves, 
+               des rives, et des fonds du lac Titicaca tant au point de vue archéologique 
+               qu'au point de vue de la faune et de la flore des terres et des eaux.</p>
+            <p>Voici d'ailleurs, <persName ref="#Cha_01">Monsieur le Ministre</persName>, la composition de notre mission et nos projets d'étude :</p>
+            <list rend="simple">
+               <item>Linguistique: <persName ref="#Sen_01">M. E. Sénéchal de la Grange</persName>,</item>
+               <item>Médecine, Histoire Naturelle: <persName ref="#Nev_01">Dr Neveu-Lemaire</persName>,</item>
+               <item>Géologie et météorologie : <persName ref="#Cou_01">M. G. Courty</persName>,</item>
+               <item>Archéologie: <persName ref="#Mor_01">M. Adrien de Mortillet</persName>,</item>
+               <item>Anthropométrie et photographie: <persName ref="#Gui_01">M. J. Guillaume</persName>.</item>
+            </list>
+            <p>Nous espérons rapporter de notre voyage d'importantes collections scientifiques 
+               dont nous comptons faire don aux établissements scientifiques et établissements publics.</p>
+            <closer>
+               <salute>Veuillez agréer, <persName ref="#Cha_01">Monsieur le Ministre</persName>, l'expression de notre profond respect.</salute>
+               <signed>
+                  <persName ref="#Cre_01">GM Créqui-Montfort</persName>
+                  <persName ref="#Sen_01">E.Sénéchal de la Grange</persName>
+               </signed>
+               <address><addrLine>56. Rue de Londres</addrLine></address>
+            </closer>
+         </div>
+      </body>
+   </text>
+</TEI>

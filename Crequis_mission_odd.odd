@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" 
+  xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+  xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Crequis_mission_schema</title>
+        <author>Mélina Conter</author>
+        <respStmt>
+          <resp>Conception and encoding</resp>
+          <name>Mélina Conter</name>
+        </respStmt>
+      </titleStmt>
+      <publicationStmt>
+        <authority>Ecole nationale des Chartes</authority>
+        <availability status="free">
+          <licence target="http://creativecommons.org/licenses/by-sa/3.0/">
+            Distributed under a Creative Commons Attribution-ShareAlike 4.0. Free to use and share with attribution and similar licensing.
+          </licence>
+        </availability>
+      </publicationStmt>
+      <sourceDesc>
+        <p>This ODD was initially created using TEI minimal encoding with Roma, then extensively customized to meet the requirements of the "Mission Scientifique" project. Sources include:</p>
+          <p>TEI Guidelines version 4.5.1</p>
+          <p>Relevant letters and administrative documents from the Mission Scientifique archives</p>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <appInfo>
+        <application ident="RomaJS" version="1.1.2" when="2024-12-31T16:38:08.228Z">
+          <desc>File edited with <ref target="https://github.com/TEIC/romajs">RomaJS</ref></desc>
+        </application>
+      </appInfo>
+    </encodingDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <head>A TEI Customization for Crequi's Mission Project</head>
+      
+      <p>This TEI ODD defines a TEI customization for encoding letters from the French Archives Nationales related to Créqui-Montfort's scientific mission during 1904 in South America.  
+        The project aims to create a comprehensive database that documents the mission in detail, shedding light on the roles and interactions of various actors, including institutions, government ministries, members of the mission, scientists, and museums. This database will enable a better understanding of the mission’s progression, from its initial planning to the dispersal and exhibition of the collected objects. Additionally, the project seeks to enhance the description of the archival collections from which the letters are extracted.  
+        
+        The letters encoded in this project are drawn from two specific archival sources:</p>
+        <list>
+          <item>The mission's file, which contains administrative and logistical documents related to the organization and execution of the scientific mission.</item>
+          <item>The exhibition dossier, which documents the display of the objects collected during the mission at the Musée du Trocadéro.</item>
+        </list>
+        
+        <p>To achieve its goals, the TEI customization incorporates a structured <gi>teiHeader</gi> designed to facilitate in-depth documentation. Key components include:</p>        
+        <list>
+          <item>A <gi>sourceDesc</gi> section containing <gi>listPerson</gi>, <gi>listOrg</gi>, and <gi>listPlace</gi>, which provide an organized representation of individuals, organizations, and places referenced in the letters.</item>
+          <item>A <gi>profileDesc</gi> section that includes a <gi>correspDesc</gi> element to document the events of sending and receiving correspondence, offering insights into the communication flow and its historical context.</item>
+        </list>
+        
+        <p>The body of the letters is less constrained, allowing for flexibility in encoding the main text, but it requires the inclusion of essential structural components such as an <gi>opener</gi> and a <gi>closer</gi>. This ensures consistency while maintaining the authenticity of the original documents.  
+        
+        Overall, this TEI customization serves as a foundational tool to explore and analyze the dynamics of this significant scientific mission. By creating a database and enriching archival descriptions, it contributes to a deeper understanding of the mission's historical, scientific, and cultural significance.</p>
+      
+      <schemaSpec ident="tei_crequis_mission" start="TEI" prefix="tei_" targetLang="en" docLang="en">
+        
+        <!-- teiHeader elements -->
+        <moduleRef key="header" include="teiHeader fileDesc titleStmt publicationStmt sourceDesc distributor availability idno extent encodingDesc projectDesc profileDesc correspDesc correspAction"/>
+        
+        <elementSpec ident="sourceDesc" mode="change" module="header">
+          <desc>contains infos about the physical source document and specifications about people, places and organizations that are cited within the document's text or in <gi>correspAction</gi>. In our project,<gi>sourceDesc</gi> must contain <gi>msDesc</gi> and can contain <gi>listPerson</gi>, <gi>listOrg</gi> and <gi>listPlace</gi>.</desc>
+          <content>
+            <sequence>
+              <!-- msDesc is mandatory and can only occur once-->
+              <elementRef key="msDesc" minOccurs="1" maxOccurs="1"/>
+              <!-- ListPerson, listOrg and listPlace are not mandatory and can only occur once -->
+              <elementRef key="listPerson" minOccurs="0" maxOccurs="1"/>
+              <elementRef key="listOrg" minOccurs="0" maxOccurs="1"/>
+              <elementRef key="listPlace" minOccurs="0" maxOccurs="1"/>
+            </sequence>
+          </content>
+        </elementSpec>
+      
+        <elementSpec ident="profileDesc" mode="change" module="header">
+          <desc>contains infos about the content of the encoded letter. In our project <gi>profileDesc</gi> must contain <gi>correspDesc</gi>.</desc>
+          <content>
+            <!-- correspDesc is mandatory and can only occur once-->
+            <elementRef key="correspDesc" minOccurs="1" maxOccurs="1"/>
+          </content>
+        </elementSpec>
+        <elementSpec ident="correspDesc" mode="change" module="header">
+          <desc>contains infos about the events concerning the letter (sending and receiving). In our project <gi>correspDesc</gi> must contain <gi>correspAction</gi> twice. Once for the sending's infos, once for the recieving's infos.</desc>
+          <content>
+              <!-- correspAction is mandatory and has to occur twice-->
+              <elementRef key="correspAction" minOccurs="2" maxOccurs="2"/>
+          </content>
+        </elementSpec>
+        <elementSpec ident="correspAction" mode="change" module="header">
+          <desc>Contains infos about either the sending event or the receiving event. In our project, <gi>correspAction</gi> must contain <gi>persName</gi> and can contain <gi>orgName</gi>, <gi>date</gi>, <gi>placeName</gi>, <gi>address</gi> and <gi>country</gi>.</desc>
+          <content>
+            <sequence>
+              <!-- persName is mandatory and can occur twice, in case two persons signed the letter -->
+              <elementRef key="persName" minOccurs="1" maxOccurs="2"/>
+              <!-- orgName is optional and can occur once -->
+              <elementRef key="orgName" minOccurs="0" maxOccurs="1"/>
+              <!-- date is optional and can occur once -->
+              <elementRef key="date" minOccurs="0" maxOccurs="1"/>
+              <!-- placeName is optional and can occur once -->
+              <elementRef key="placeName" minOccurs="0" maxOccurs="1"/>
+              <!-- address is optional and can occur once -->
+              <elementRef key="address" minOccurs="0" maxOccurs="1"/>
+              <!-- country is optional and can occur once -->
+              <elementRef key="country" minOccurs="0" maxOccurs="1"/>
+            </sequence>
+          </content>
+          <attList>
+            <attDef ident="type" mode="change" usage="req">
+              <!-- correspAction has a mandatory type attribute with the value sent or received-->
+              <valList type="closed">
+                <valItem ident="sent"/>
+                <valItem ident="received"/>
+              </valList>
+            </attDef>
+          </attList>
+          <exemplum>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+              <correspAction type="sent">
+                <persName ref="#Cre_01">George de Créqui-Montfort</persName>
+                <persName ref="#Sen_01">Eugène Sénéchal de la Grange</persName>
+                <date when="1903-02-28">28 février 1903</date>
+                <address>
+                  <addrLine>56 Rue de Londres, 75008 Paris</addrLine>
+                </address>
+                <country>France</country>
+              </correspAction>
+            </egXML>
+          </exemplum>
+        </elementSpec>    
+        
+        <!-- required core elements (p and title for use in titleStmt) -->
+        <moduleRef key="core" include="p title desc note date head list item address addrLine respStmt resp name"/>
+        
+        <!-- required textstructure elements (TEI, text, and body) -->
+        <moduleRef key="textstructure" include="TEI text body div opener closer salute dateline signed"/>
+        
+        <elementSpec ident="body" mode="change" module="textstructure">
+          <desc>In our project, <gi>body</gi> must include mandatory <gi>opener</gi> and <gi>closer</gi> elements since every 
+            letter has at least a salutation and a signature.
+            Encoded text within <gi>body</gi> outside of <gi>closer</gi> and <gi>opener</gi> can be contained in <gi>p</gi>, <gi>div</gi> and <gi>list</gi>.
+          </desc>
+          <constraintSpec ident="closer_opener" mode="change" scheme="http://purl.oclc.org/dsdl/schematron">
+            <constraint>
+              <sch:rule context="tei:body">
+                <sch:report test="not(descendant::tei:opener) or not(descendant::tei:closer)" role="error">
+                  The body should contain both an opener and a closer as descendants. Fix your encoding.
+                </sch:report>
+              </sch:rule>
+            </constraint>
+          </constraintSpec>
+        </elementSpec>
+        
+        
+        <!-- required module tei instantiates lots of classes used for further expansion of this odd -->
+        <moduleRef key="tei"/>
+        
+        <!-- required msdescription elements -->
+        <moduleRef key="msdescription" include="msDesc msIdentifier repository physDesc objectDesc supportDesc support"/>
+        <elementSpec ident="msDesc" mode="change" module="msdescription">
+          <desc>Contains infos on the physical source document. In our project <gi>msDesc</gi> must contain <gi>msIdentifier</gi> and <gi>physDesc</gi>.</desc>
+          <content>
+            <sequence>
+              <!-- msIdentifier and physDesc are mandatory and must occur once each -->
+              <elementRef key="msIdentifier" minOccurs="1" maxOccurs="1"/>
+              <elementRef key="physDesc" minOccurs="1" maxOccurs="1"/>
+            </sequence>
+          </content>
+        </elementSpec>
+        
+        <elementSpec ident="msIdentifier" mode="change" module="msdescription">
+          <desc>Contains info on the localisation and identification of the physical source document. In our project <gi>msIdentifier</gi> must contain <gi>country</gi>, <gi>settlement</gi>, <gi>repository</gi> and <gi>idno</gi>.</desc>
+          <content>
+            <sequence>
+              <!-- country, settlement, repository and idno are mandatory and can occur once -->
+              <elementRef key="country" minOccurs="1" maxOccurs="1"/>
+              <elementRef key="settlement" minOccurs="1" maxOccurs="1"/>
+              <elementRef key="repository" minOccurs="1" maxOccurs="1"/>
+              <elementRef key="idno" minOccurs="1" maxOccurs="1"/>
+            </sequence>
+          </content>
+          <exemplum>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+              <msIdentifier>
+                <country>France</country>
+                <settlement>Pierrefitte-sur-Seine</settlement>
+                <repository>Archives nationales</repository>
+                <idno>"Courtivron",(F/17/17270)</idno>
+              </msIdentifier>
+            </egXML>
+          </exemplum>
+        </elementSpec>
+        <elementSpec ident="physDesc" mode="change" module="msdescription">
+          <desc>contains info on the physical caracteristics of the physical source document. In our project <gi>physDesc</gi> must contain <gi>objectdesc</gi> once since we only ever encode one letter at a time within a TEI XML document.</desc>
+          <content>
+            <!-- physDesc must only contain objectDesc once -->
+            <elementRef key="objectDesc" minOccurs="1" maxOccurs="1"/>
+          </content>
+        </elementSpec>
+        <elementSpec ident="objectDesc" mode="change" module="msdescription">
+          <desc>contains support and extent info of the physical source document within <gi>supportDesc</gi>. In our porject <gi>objectDesc</gi> contain only only one occurence of <gi>supportDesc</gi>.</desc>
+          <content>
+            <elementRef key="supportDesc" minOccurs="1" maxOccurs="1"/>
+          </content>
+        </elementSpec>
+        <elementSpec ident="supportDesc" mode="change" module="msdescription">
+          <desc>contains support and extent info of the physical source document. In our project, <gi>supportDesc</gi> can only contain <gi>support</gi> and <gi>extent</gi> once each.</desc>
+          <content>
+            <sequence>
+              <!-- support and extent are mandatory and must occur once -->
+              <elementRef key="support" minOccurs="1" maxOccurs="1"/>
+              <elementRef key="extent" minOccurs="1" maxOccurs="1"/>
+            </sequence>
+          </content>
+          <exemplum>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+              <supportDesc>
+                <support>Feuille de papier</support>
+                <extent>3 pages</extent>
+              </supportDesc>
+            </egXML>
+          </exemplum>
+        </elementSpec>
+        
+        <!-- required namesdates elements-->
+        <moduleRef key="namesdates" include="country settlement listPerson listPlace listOrg persName orgName org person place placeName roleName location geo"/>
+        
+        <elementSpec ident="listPerson" mode="change" module="namesdates">
+          <desc>
+            Contains a list of the persons cited with <gi>persName</gi> if present in <gi>body</gi> or in <gi>correspAction</gi>. 
+            Allows a better identification of the persons cited within the text of the letter and an enrichment of the informations we know about them.
+          </desc>
+        </elementSpec>
+        <elementSpec ident="person" mode="change" module="namesdates">
+          <desc>
+            Contains infos on a person cited with <gi>persName</gi> if present in <gi>body</gi> or in <gi>correspAction</gi>.
+            Must contain the full name of the person in <gi>persName</gi> and a <gi>roleName</gi> within it to define the job, activity or official title of the person. 
+            <gi>person</gi> can contain an external ID for better identification within <gi>idno</gi>.
+            <gi>person</gi> has a mandatory attribute <att>xml:id</att> to better understand where the person is cited within the encoded letter document.
+            This ID will be referenced with value of the attribute <att>ref</att> within the document.
+          </desc>
+          <content>
+            <sequence>
+              <elementRef key="persName" minOccurs="1" maxOccurs="1"/>
+              <elementRef key="idno" minOccurs="0" maxOccurs="1"/>
+            </sequence>
+          </content>
+          <attList>
+            <attDef ident="xml:id" mode="change" usage="req">
+              <desc>The value of <att>xml:id</att> when used with <gi>person</gi> should be composed with the first 3 letters of the surname of the person within 
+                the corresponding <gi>persName</gi>, an underscore then two numbers starting from 01.</desc>
+            </attDef>
+          </attList>
+          <exemplum>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+              <person xml:id="Cre_001">
+                <persName>George de Créqui-Montfort : <roleName>chef de la mission scientifique de Créqui-Montfort</roleName></persName>
+                <idno type="wikidata">Q3103688</idno>
+              </person>
+            </egXML>
+          </exemplum>
+        </elementSpec>
+        
+        
+        <elementSpec ident="listOrg" mode="change" module="namesdates">
+          <desc>
+            Contains a list of the organisations cited with <gi>orgName</gi> if present in <gi>body</gi> or in <gi>correspAction</gi>. 
+            Allows a better identification of the organisations cited within the text of the letter and an enrichment of the informations we know about them.
+          </desc>
+        </elementSpec>
+        <elementSpec ident="org" mode="change" module="namesdates">
+          <desc>
+            Contains infos on an organisation cited with <gi>orgName</gi> if present in <gi>body</gi> or in <gi>correspAction</gi>.
+            Must contain the full name of the organisation in <gi>orgName</gi>. 
+            <gi>org</gi> can contain an external ID for better identification within <gi>idno</gi>.
+            <gi>org</gi> has a mandatory attribute <att>xml:id</att> to better understand where the oragnisation is cited within the encoded letter document.
+            This id will be referenced with value of the attribute <att>ref</att> within the document.
+          </desc>
+          <content>
+            <sequence>
+              <elementRef key="orgName" minOccurs="1" maxOccurs="1"/>
+              <elementRef key="idno" minOccurs="0" maxOccurs="1"/>
+            </sequence>
+          </content>
+          <attList>
+            <attDef ident="xml:id" mode="change" usage="req">
+              <desc>The value of <att>xml:id</att> when used with <gi>org</gi> should be composed with the initials of the organisation name within 
+                the corresponding <gi>orgName</gi>, an underscore then two numbers starting from 01.</desc>
+            </attDef>
+          </attList>
+          <exemplum>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+              <org xml:id="MdSc_01">
+                <orgName>Musée de Sculpture comparée</orgName>
+                <idno type="wikidata">Q1889428</idno>
+              </org>
+            </egXML>
+          </exemplum>
+        </elementSpec>
+        
+        <elementSpec ident="listPlace" mode="change" module="namesdates">
+          <desc>
+            Contains a list of the places cited with <gi>placeName</gi> if present in <gi>body</gi> or in <gi>correspAction</gi>. 
+            Allows a better identification of the places cited within the text of the letter and an enrichment of the informations we know about them.
+          </desc>
+        </elementSpec>
+        <elementSpec ident="place" mode="change" module="namesdates">
+          <desc>
+            Contains infos on a place cited with <gi>placeName</gi> if present in <gi>body</gi> or in <gi>correspAction</gi>.
+            Must contain the full name of the place in <gi>placeName</gi>, the full address and/or coordinates (if possible) in <gi>location</gi>. 
+            <gi>place</gi> can contain an external ID for better documentation within <gi>idno</gi>.
+            <gi>place</gi> has a mandatory attribute <att>xml:id</att> to better understand where the place is cited within the encoded letter document.
+            This id will be referenced with the value of the attribute <att>ref</att> within the document.
+          </desc>
+          <content>
+            <sequence>
+              <elementRef key="placeName" minOccurs="1" maxOccurs="1"/>
+              <elementRef key="location" minOccurs="1" maxOccurs="1"/>
+              <elementRef key="idno" minOccurs="0" maxOccurs="1"/>
+            </sequence>
+          </content>
+          <attList>
+            <attDef ident="xml:id" mode="change" usage="req">
+              <desc>The value of <att>xml:id</att> when used with <gi>place</gi> should be composed with the first three letters of the name within 
+                the corresponding <gi>placeName</gi>, or its initials if in several words, followed by an underscore then two numbers starting from 01.</desc>
+            </attDef>
+          </attList>
+          <exemplum>               
+            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+              <place xml:id="PdT_01">
+                <placeName>Palais du Trocadéro</placeName>
+                <location>
+                  <address>
+                    <addrLine>palais du Trocadéro, 75016 Paris, France</addrLine>
+                  </address>
+                  <geo>48.862778 2.287222</geo>
+                </location>
+                <idno type="wikidata">Q3062726</idno>
+              </place>
+            </egXML>
+          </exemplum>
+        </elementSpec>
+        
+        <elementSpec ident="location" mode="change" module="namesdates">
+          <desc>Contains infos about the location of a place within <gi>place</gi>. Must contain <gi>address</gi> for the address and can contain <gi>geo</gi> for the coordinates.
+            If the address and the coordinate are unknown, <gi>address</gi> should contain <gi>addrLine</gi> specifying "unknown" in the text node.
+          </desc>
+          <content>
+            <sequence>
+              <elementRef key="address" minOccurs="1" maxOccurs="1"/>
+              <elementRef key="geo" minOccurs="0" maxOccurs="1"/>
+            </sequence>
+          </content>
+        </elementSpec>
+        <elementSpec ident="address" mode="change" module="core">
+          <desc>In our porject, <gi>address</gi> must only contain <gi>addrLine</gi> once. It can be used in :
+            <list rend="numbered">
+              <item><gi>body</gi> : for any mention of an address within the letter's text.</item>
+              <item><gi>correspAction</gi> : when the sender's address or the receiver's address is known.</item>
+              <item><gi>place</gi> : to specify the address of the place or if to specify if it's unknwon.</item>
+            </list>
+          </desc>
+          <content>
+            <!-- addrLine is mandatory and can only occur once -->
+            <elementRef key="addrLine" minOccurs="1" maxOccurs="1"/>
+          </content>
+        </elementSpec>
+        
+        <!-- Making rules for persName element -->
+        <elementSpec ident="persName" mode="change" module="namesdates">
+          <desc><gi>persName</gi> can contain :
+            <list>
+              <item>Full name of a person : when child of <gi>person</gi>.</item>
+              <item>Any cited person name : when descendant of <gi>body</gi> or <gi>correspAction</gi>.</item>
+            </list>
+            When descendant of <gi>body</gi> or <gi>correspAction</gi>, <gi>persName</gi> has a mandatory <att>ref</att> to better identify the person in question.
+          </desc>
+          <constraintSpec ident="ref_persName_not_body_correspAction" scheme="schematron">
+            <desc><att>ref</att> can only be used on <gi>persName</gi> when within <gi>body</gi> or <gi>correspAction</gi></desc>
+            <constraint>
+              <sch:rule context="tei:persName[@ref]">
+                <sch:assert test="ancestor::tei:body or ancestor::tei:correspAction" role="error">
+                  The attribute ref can only be used on persName when it is a descendant of body or correspAction. Please fix your encoding.
+                </sch:assert>
+              </sch:rule>
+            </constraint>
+          </constraintSpec>
+          
+          <!-- Second constaint : @ref mandatory in body and correspAction -->
+          <constraintSpec ident="ref_persName_mandatory" scheme="schematron">
+            <desc><att>ref</att> is mandatory with <gi>persName</gi> element when within <gi>body</gi> and <gi>correspAction</gi>.</desc>
+            <constraint>
+              <sch:rule context="tei:persName[ancestor::tei:body or ancestor::tei:correspAction]">
+                <sch:assert test="@ref" role="error">
+                  The element persName must have a @ref attribute if it is a descendant of body or correspAction. Please fix your encoding.
+                </sch:assert>
+              </sch:rule>
+            </constraint>
+          </constraintSpec>
+          
+          <attList>
+            <attDef ident="ref" mode="change">
+              <desc>
+                <att>ref</att> is mandatory with <gi>persName</gi> when within <gi>body</gi> or <gi>correspAction</gi>.
+              </desc>
+            </attDef>
+          </attList>          
+        </elementSpec>
+        
+        <!-- Making rules for placeName element -->
+        <elementSpec ident="placeName" mode="change" module="namesdates">
+          <desc><gi>placeName</gi> can contain :
+            <list>
+              <item>Full name of a place : when child of <gi>place</gi>.</item>
+              <item>Any cited place name : when descendant of <gi>body</gi> or <gi>correspAction</gi>.</item>
+            </list>
+            When descendant of <gi>body</gi> or <gi>correspAction</gi>, <gi>placeName</gi> has a mandatory <att>ref</att> to better identify the person in question.
+          </desc>
+          <constraintSpec ident="ref_placeName" scheme="schematron">
+            <desc><att>ref</att> can only be used on <gi>placeName</gi> when within <gi>body</gi> or <gi>correspAction</gi></desc>
+            <constraint>
+              <sch:rule context="tei:placeName[@ref]">
+                <sch:assert test="ancestor::tei:body or ancestor::tei:correspAction" role="error">
+                  The attribute ref can only be used on persName, orgName, and placeName when they are children of correspAction or body. Please fix your encoding.
+                </sch:assert>
+              </sch:rule>
+            </constraint>
+          </constraintSpec>
+          <constraintSpec ident="ref_placeName_mandatory" scheme="schematron">
+            <desc><att>ref</att> is mandatory with <gi>placeName</gi> element when within <gi>body</gi> and <gi>correspAction</gi>.</desc>
+            <constraint>
+              <sch:rule context="tei:placeName[ancestor::tei:body or ancestor::tei:correspAction]">
+                <sch:assert test="@ref" role="error">
+                  The element placeName must have a @ref attribute if it is a descendant of body or correspAction. Please fix your encoding.
+                </sch:assert>
+              </sch:rule>
+            </constraint>
+          </constraintSpec>
+          
+          <!-- Liste des attributs -->
+          <attList>
+            <attDef ident="ref" mode="change">
+              <desc>
+                <att>ref</att> is mandatory with <gi>placeName</gi> when within <gi>body</gi> or <gi>correspAction</gi>.
+              </desc>
+            </attDef>
+          </attList>
+        </elementSpec>
+        
+        <!-- Making rules for orgName element -->
+        <elementSpec ident="orgName" mode="change" module="namesdates">
+          <desc><gi>orgName</gi> can contain :
+            <list>
+              <item>Full name of an organisation : when child of <gi>org</gi>.</item>
+              <item>Any cited organisation name : when descendant of <gi>body</gi> or <gi>correspAction</gi>.</item>
+            </list>
+            When descendant of <gi>body</gi> or <gi>correspAction</gi>, <gi>orgName</gi> has a mandatory <att>ref</att> to better identify the person in question.
+          </desc>
+          <constraintSpec ident="ref_orgName" scheme="schematron">
+            <desc><att>ref</att> can only be used on <gi>orgName</gi> when within <gi>body</gi> or <gi>correspAction</gi></desc>
+            <constraint>
+              <sch:rule context="tei:placeName[@ref]">
+                <sch:assert test="ancestor::tei:body or ancestor::tei:correspAction" role="error">
+                  The attribute ref can only be used on persName, orgName, and placeName when they are children of correspAction or body. Please fix your encoding.
+                </sch:assert>
+              </sch:rule>
+            </constraint>
+          </constraintSpec>
+          <constraintSpec ident="ref_orgName_mandatory" scheme="schematron">
+            <desc><att>ref</att> is mandatory with <gi>orgName</gi> element when within <gi>body</gi> and <gi>correspAction</gi>.</desc>
+            <constraint>
+              <sch:rule context="tei:placeName[ancestor::tei:body or ancestor::tei:correspAction]">
+                <sch:assert test="@ref" role="error">
+                  The element placeName must have a @ref attribute if it is a descendant of body or correspAction. Please fix your encoding.
+                </sch:assert>
+              </sch:rule>
+            </constraint>
+          </constraintSpec>
+          
+          <attList>
+            <attDef ident="ref" mode="change">
+              <desc>
+                <att>ref</att> is mandatory with <gi>placeName</gi> when within <gi>body</gi> or <gi>correspAction</gi>.
+              </desc>
+            </attDef>
+          </attList>
+        </elementSpec>
+        
+        
+        <!-- Making rules for idno element -->
+        <elementSpec ident="idno" mode="change" module="header">
+          <desc><gi>idno</gi> can be used in <gi>person</gi>, <gi>org</gi> and <gi>place</gi> to specify an external ID and thefore a better identification of the entity.
+            When <gi>idno</gi> is a child element of <gi>person</gi>, <gi>org</gi> or <gi>place</gi>, it has a mandatory <att>type</att> that indicates the source of the external ID.
+          It is also mandatory within <gi>msIdentifier</gi> to specify the archival classification number of the source letter.</desc>
+          <constraintSpec ident="idno_restrain" scheme="schematron">
+            <constraint>
+              <sch:rule context="tei:person/tei:idno | tei:org/tei:idno | tei:place/tei:idno">
+                <sch:assert test="@type">
+                  The idno element, when child of person, org or place, must have a type attribute. Please add it.
+                </sch:assert>
+              </sch:rule>
+            </constraint>
+          </constraintSpec>
+        </elementSpec>
+        
+      </schemaSpec>
+    </body>
+  </text>
+</TEI>

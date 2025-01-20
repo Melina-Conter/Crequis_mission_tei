@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../../T%C3%A9l%C3%A9chargements/out/tei_minimal.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="../../../../T%C3%A9l%C3%A9chargements/out/tei_minimal.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="fr">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Enlart_15_12_1903</title>
+            <respStmt>
+               <resp>Encodé par</resp>
+               <name>Mélina Conter</name>
+            </respStmt>
+         </titleStmt>
+         <publicationStmt>
+            <distributor>Ecole nationale des Chartes</distributor>
+            <availability status="free">
+               <p>Réutilisation libre en contexte acdémique et pour la recherche</p>
+            </availability>
+         </publicationStmt>
+         <sourceDesc>
+            <msDesc>
+               <msIdentifier>
+                  <country>France</country>
+                  <settlement>Pierrefitte-sur-Seine</settlement>
+                  <repository>Archives nationales</repository>
+                  <idno>20144739/5</idno>
+               </msIdentifier>
+               <physDesc>
+                  <objectDesc>
+                     <supportDesc>
+                        <support>Feuilles de papier</support>
+                        <extent>2 pages</extent>
+                     </supportDesc>
+                  </objectDesc>
+               </physDesc>
+            </msDesc>
+            <listPerson>
+               <person xml:id="Cre_01">
+                  <persName>George de Créqui-Montfort, <roleName>chef de la mission scientifique de Créqui-Montfort</roleName></persName>
+                  <idno type="wikidata">Q3103688</idno>
+               </person>
+               <person xml:id="Leo_01">
+                  <persName>Paul Léon, <roleName>directeur de l'administration des Beaux-Arts</roleName></persName>
+                  <idno type="wikidata">Q3371732</idno>
+               </person>
+               <person xml:id="Enl_01">
+                  <persName>Camille Enlart, <roleName>directeur du Musée de Sculpture comparée</roleName></persName>
+                  <idno type="wikidata">Q2898660</idno>
+               </person>
+               <person xml:id="Sen_01">
+                  <persName>Eugène Sénéchal de la Grange, <roleName>membre de la mission scientifique de Créqui-Montfort</roleName></persName>
+                  <idno type="bnf">ark:/12148/cb153776752</idno>
+               </person>
+               <person xml:id="Bay_01">
+                  <persName>Charles Bayet, <roleName>directeur de l'Enseignement supérieur</roleName></persName>
+                  <idno type="wikidata">Q2958500</idno>
+               </person>
+               <person xml:id="Cas_01">
+                  <persName>Justin Germain Casimir de Selves, <roleName>préfet de la Seine</roleName></persName>
+                  <idno type="wikidata">Q2403337</idno>
+               </person>
+            </listPerson>
+            <listOrg>
+               <org xml:id="Msc_01">
+                  <orgName>Musée de Sculpture comparée</orgName>
+                  <idno type="bnf">ark:/12148/cb118774436</idno>
+               </org>
+               <org xml:id="Mipba_01">
+                  <orgName>Ministère de l'Instruction Publique et des Beaux-Arts</orgName>
+                  <idno type="VIAF">316898315</idno>
+               </org>
+            </listOrg>
+            <listPlace>
+               <place xml:id="Msc_02">
+                  <placeName>Musée de Sculpture comparée</placeName>
+                  <location>
+                     <address>
+                        <addrLine>1 place du Trocadéro, Palais de Chaillot, 75016 Paris</addrLine>
+                     </address>
+                     <geo>48.8637 2.2769</geo>
+                  </location>
+                  <idno type="bnf">ark:/12148/cb118774436</idno>
+               </place>
+               <place xml:id="Mipba_02">
+                  <placeName>Ministère de l'Instruction Publique et des Beaux-Arts</placeName>
+                  <location>
+                     <address><addrLine>Hôtel de Rochechouart, 110 rue de Grenelle, 75007 Paris</addrLine></address>
+                     <geo>48.862725 2.287592</geo>
+                  </location>
+                  <idno type="VIAF">316898315</idno>
+               </place>
+               <place xml:id="Pat_01">
+                  <placeName>Palais du Trocadéro</placeName>
+                  <location>
+                     <address>
+                        <addrLine>place du Trocadéro, 75016 Paris</addrLine>
+                     </address>
+                     <geo>48.8637 2.2769</geo>
+                  </location>
+                  <idno type="wikidata">Q123256</idno>
+               </place>
+               <place xml:id="Bol_01">
+                  <placeName>Bolivie</placeName>
+                  <location>
+                     <address><addrLine>Bolivie</addrLine></address>
+                  </location>
+                  <idno type="wikidata">Q750</idno>
+               </place>
+               <place xml:id="Vdp_01">
+                  <placeName>Ville de Paris</placeName>
+                  <location>
+                     <address>
+                        <addrLine>Paris</addrLine>
+                     </address>
+                     <geo>48.866667 2.333333</geo>
+                  </location>
+                  <idno type="wikidata">Q90</idno>
+               </place>
+            </listPlace>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <projectDesc>
+            <p>Ce document a été encodé dans le cadre du projet Crequis_mission.</p>
+         </projectDesc>
+      </encodingDesc>
+      <profileDesc>
+         <correspDesc>
+            <correspAction type="sent">
+               <persName ref="#Enl_01">Camille Enlart</persName>
+               <orgName ref="#Msc_01">Musée de Sculpture comparée</orgName>
+               <date when="1903-12-15">15 décembre 1903</date>
+               <placeName ref="#Msc_02">Musée de Sculpture comparée, Palais du Trocadéro</placeName>
+               <country>France</country>
+            </correspAction>
+            <correspAction type="received">
+               <persName ref="#Leo_01">Paul Léon</persName>
+               <orgName ref="#Mipba_01">Ministère de l'Instruction Publique et des Beaux-Arts</orgName>
+               <placeName ref="#Mipba_02">Ministère de l'Instruction Publique et des Beaux-Arts</placeName>
+               <country>France</country>
+            </correspAction>
+         </correspDesc>
+      </profileDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <div>
+            <head>
+               <orgName ref="#Mipba_01">
+                  MINISTÈRE 
+                  DE L’INSTRUCTION PUBLIQUE 
+                  ET DES  BEAUX-ARTS
+                  BEAUX-ARTS
+                  MONUMENTS HISTORIQUES</orgName>
+            </head>
+            <opener>
+               <placeName ref="#Msc_02">MUSÉE DE SCULPTURE COMPARÉE</placeName>
+               <dateline>Palais du Trocadéro le 15 décembre 1903</dateline>
+               <salute><persName ref="#Enl_01">Le Directeur du Musée de Sculpture comparée</persName> à 
+                  <persName ref="#Leo_01">Monsieur le Directeur des Beaux-Arts</persName>.</salute>
+            </opener>
+            <p>En réponse à votre lettre du <date when="1903-12-11">11 courant</date>. J’ai l’honneur de vous 
+               informer que je ne vois pas d’inconvénient à accorder à <persName ref="#Cre_01">M.M. de Créqui-Montfort</persName> 
+               et <persName ref="#Sen_01">Sénéchal de la Grange</persName> l’autorisation d’installer 
+               pour quelques mois dans une partie des galeries extérieures du <placeName ref="#Pat_01">Trocadéro</placeName> 
+               l’exposition des collections rapportées de leur mission en <placeName ref="#Bol_01">Bolivie</placeName>. En effet, ayant 
+               accepté les conditions mises par la Trocadéro <placeName ref="#Vdp_01">Ville de Paris</placeName> à l’installation des 
+               collections complémentaires du <placeName ref="#Msc_02">Musée de Sculpture Comparée</placeName> dans les 
+               galeries extérieures du <placeName ref="#Pat_01">Trocadéro</placeName>, conditions que vous avez bien 
+               voulu me notifier par lettre du <date when="1903-10-15">15 octobre dernier</date>, je crois pouvoir 
+               disposer de ces galeries et vais sous peu de jours commercer à y aménager nos collections.</p>
+            <p>Or, comme il nous est impossible d’avoir terminé cet aménagement et garni toutes les galeries 
+               avant assez longtemps, je ne vois pas d’inconvénient à ce qu’une partie des dites galeries 
+               soit momentanément occupé par une exposition à laquelle <persName ref="#Bay_01">M. le Directeur de l’Enseignement Supérieur</persName> 
+               s’intéresse et qui aura un avantage pour notre Musée puisque les exposants offrent de nous laisser 
+               à titre gracieux les aménagements qu’ils auront fait installer à leurs frais.</p>
+            <p>Je suis donc d’avis d’accéder à leur requête aux conditions suivantes :</p>
+            <list rend="numbered">
+               <item>L’espace concédé ne pourra excéder deux travées de nos galeries.</item>
+               <item>Tous les frais de nettoyage, aménagement, réparations nécessaires à l’installation comme ceux du gardiennage et de l’installation elle-même seront supportés par les exposants.</item>
+               <item>Les exposants devront observer rigoureusement les conditions que nous a faites la <placeName ref="#Vdp_01">Ville de Paris</placeName> d’accord avec <persName ref="#Cas_01">M. le Préfet de la Seine</persName>, c’est-à-dire assurer la libre circulation aux heures d’ouverture du musée, ne pas masquer la vue extérieure, ne rien accrocher aux vitrages.</item>
+               <item>Les Galeries devront être rendues libre au <date when="1904-07-01">1er Juillet</date> (ou juin ?).</item>
+               <item>Suivant la proposition qu’ils veulent bien nous faire, les exposants laisseront à titre gracieux au <orgName ref="#Msc_01">musée de Sculpture Comparée</orgName>, leurs installations après la clôture de l’exposition.</item>
+            </list>            
+            <closer>
+               <signed><persName ref="#Enl_01">Enlart</persName></signed>
+            </closer>
+         </div>
+      </body>
+   </text>
+</TEI>
